@@ -15,7 +15,14 @@ namespace MVCDisco.Servicios
              return (from n in db.Album orderby n.Nombre select n).ToList();
             }
 
-    //Metodo que obtiene todoso los albumes
+      //Metodo que obtiene una lista de canciones segun album
+         public List<Album> FiltrarAlbumsPorArtista(int id)
+         {
+             return (from n in db.Album where n.Artista.IdArtista == id select n).ToList();
+         }
+
+
+    //Metodo que obtiene todos los albumes
             public List<Album> BuscarTodoAlbum()
             {
                 return db.Album.ToList();
@@ -30,23 +37,17 @@ namespace MVCDisco.Servicios
                 return true;
             }
 
-            public bool BorrarAlbum(int id) {
-                List<Cancion> cancion = db.Cancion.ToList();
-                List<Album> album = db.Album.ToList();
-
+            public bool BorrarAlbum(int id)
+            {
                 var can = from a in db.Cancion where a.IdAlbum == id select a;
-                var alb = from c in db.Album where c.IdAlbum == id select c;
-
 
                 foreach (var ca in can)
                 {
                     db.Cancion.Remove(ca);
                 }
 
-                foreach (var all in alb)
-                {
-                    db.Album.Remove(all);
-                }
+                db.Album.Remove((from c in db.Album where c.IdAlbum == id select c).First());
+
                 db.SaveChanges();
                 return true;
             }

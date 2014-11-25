@@ -25,6 +25,26 @@ namespace MVCDisco.Controllers
             return View(albumServicio.OrdenarAlbumPorNombre());
         }
 
+        [HttpPost]
+        public ActionResult Index(string IdArtista)
+        {
+
+            ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
+            int resultado;
+            if (int.TryParse(IdArtista, out resultado))
+            {
+
+                return View(albumServicio.FiltrarAlbumsPorArtista(Int32.Parse(IdArtista)));
+
+            }
+
+            return View(albumServicio.OrdenarAlbumPorNombre());
+        }
+
+
+
+
+
         //
         // GET: /Album/Details/5
 
