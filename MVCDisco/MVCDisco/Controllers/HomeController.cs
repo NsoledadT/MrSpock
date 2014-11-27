@@ -30,6 +30,7 @@ namespace MVCDisco.Controllers
 
                 user.Email = form["email"];
                 user.Contrasenia = form["contrasenia"];
+                int IdUsuario = user.IdUsuario;
 
                 if (usuarioServicio.usuarioValido(user.Email, user.Contrasenia))
                 {
@@ -40,7 +41,9 @@ namespace MVCDisco.Controllers
                     }
                     else
                     {
-
+                        this.Session["nombre"] = usuarioServicio.ObtenerUsuario(user.Email, user.Contrasenia).Nombre;
+                        this.Session["id"] = usuarioServicio.ObtenerUsuario(user.Email, user.Contrasenia).IdUsuario;
+                        ViewBag.Text = "Bienvenido" + "," + this.Session["nombre"];
                         return View("Login");
                     }
                 }

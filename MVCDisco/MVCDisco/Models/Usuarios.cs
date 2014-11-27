@@ -11,6 +11,7 @@ namespace MVCDisco.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Usuarios
     {
@@ -23,7 +24,13 @@ namespace MVCDisco.Models
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        [Required(ErrorMessage="Email es requerido")]
+        [StringLength(50, ErrorMessage="Email tiene un maximo de 50 caracteres")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required(ErrorMessage="Contraseña es requerido")]
+        [StringLength(20, ErrorMessage="Contraseña tiene un maximo de 20 caracteres")]
+        [DataType(DataType.Password)]
         public string Contrasenia { get; set; }
         public short Estado { get; set; }
         public System.DateTime FechaCreacion { get; set; }

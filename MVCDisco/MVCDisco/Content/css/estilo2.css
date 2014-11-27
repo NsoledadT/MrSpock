@@ -102,6 +102,7 @@ body
     height:200px;
 }
 
+
 .triangulo {
    position:relative;
    z-index:1;
@@ -146,4 +147,3 @@ body
     font-weight:bold;
    
 }
-

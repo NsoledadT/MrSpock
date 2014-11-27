@@ -10,6 +10,16 @@ namespace MVCDisco.Servicios
     {
         TP20142CEntities1 db = new TP20142CEntities1();
 
+
+        public Usuarios ObtenerUsuario(string email, string contra)
+        {
+            Usuarios us = (from u in db.Usuarios where u.Email == email && u.Contrasenia == contra select u).FirstOrDefault();
+
+            return us;
+
+        }
+        
+        
         public bool usuarioValido(string email, string contra)
         {
             var valido = (from u in db.Usuarios where u.Email == email && u.Contrasenia == contra select u).FirstOrDefault();

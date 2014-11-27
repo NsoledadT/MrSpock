@@ -76,25 +76,18 @@ namespace MVCDisco.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            
+            return View ("");
         }
 
         //
         // POST: /Album/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(FormCollection form)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+           
+            return View("");
         }
 
         //

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVCDisco.Models;
+using System.Data;
 
 namespace MVCDisco.Servicios
 {
@@ -37,6 +38,7 @@ namespace MVCDisco.Servicios
                 return true;
             }
 
+           //Metodo que borra Album
             public bool BorrarAlbum(int id)
             {
                 var can = from a in db.Cancion where a.IdAlbum == id select a;
@@ -46,12 +48,13 @@ namespace MVCDisco.Servicios
                     db.Cancion.Remove(ca);
                 }
 
-                db.Album.Remove((from c in db.Album where c.IdAlbum == id select c).First());
+                db.Album.Remove((from c in db.Album where c.IdAlbum == id select c).FirstOrDefault());
 
                 db.SaveChanges();
                 return true;
             }
 
+           
         }
     
 }
