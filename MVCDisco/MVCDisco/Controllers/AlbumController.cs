@@ -76,18 +76,28 @@ namespace MVCDisco.Controllers
 
         public ActionResult Edit(int id)
         {
-            
-            return View ("");
+            if (albumServicio.EditarAlbum(id))
+            {
+                return HttpNotFound();
+            }
+            else {
+                return View("");
+             }
         }
 
         //
         // POST: /Album/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(FormCollection form)
+        public ActionResult Edit(Album album)
         {
+            if (ModelState.IsValid)
+            {
+                albumServicio.EditarAlbum(album);
+                return RedirectToAction("Index");
+            }
            
-            return View("");
+            return View(album);
         }
 
         //

@@ -49,7 +49,7 @@ namespace MVCDisco.Controllers
                 }
                 else
                 {
-                    ViewBag.Text = "usuario invalido";
+                    ViewBag.Text = "Verifique usuario y/o contraseña";
                     return View();
                 }
 
