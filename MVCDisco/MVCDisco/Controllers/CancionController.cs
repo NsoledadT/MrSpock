@@ -109,15 +109,17 @@ namespace MVCDisco.Controllers
         // POST: /Cancion/Edit/5
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+           if (ModelState.IsValid)
             {
+              
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }
-            catch
+           else
             {
                 return View();
             }

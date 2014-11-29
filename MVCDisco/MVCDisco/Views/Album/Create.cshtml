@@ -5,61 +5,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+@Html.Partial("NavMenu_Partial")
+<div id="contenedor_index">
+    <div class="contenedor_izquierdo_cancion">
+         <img class="cualquiera" src="@Url.Content("~/Content/imagen/hombre.jpg")" alt="hombre_con_computadora" width="310" height="559" />
+    </div>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+   <div class="contenedor_derecho_cancion">
 
-    <fieldset>
-        <legend>Album</legend>
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nombre)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre)
-            @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
+   
+                                <h2>Create Album</h2>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Anio)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Anio)
-            @Html.ValidationMessageFor(model => model.Anio)
-        </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Nombre)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBox("Nombre", null, new { @class = "form-control",placeholder="Ingrese Nombre"})
+                                    @Html.ValidationMessageFor(model => model.Nombre)
+                                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FechaCreación)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FechaCreación)
-            @Html.ValidationMessageFor(model => model.FechaCreación)
-        </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.Anio)
+                                </div>
+                                <div class="editor-field">
+                                     @Html.TextBox("Anio", null, new { @class = "form-control",placeholder="Ingrese Año"})
+                                    @Html.ValidationMessageFor(model => model.Anio)
+                                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdUsuario)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdUsuario)
-            @Html.ValidationMessageFor(model => model.IdUsuario)
-        </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.FechaCreación)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBox("FechaCreacion", null, new { @class = "form-control",placeholder="Ingrese Fecha creacion"})
+                                    @Html.ValidationMessageFor(model => model.FechaCreación)
+                                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdArtista)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdArtista)
-            @Html.ValidationMessageFor(model => model.IdArtista)
-        </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.IdUsuario)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(model => model.IdUsuario)
+                                    @Html.ValidationMessageFor(model => model.IdUsuario)
+                                </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.IdArtista)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(model => model.IdArtista)
+                                    @Html.ValidationMessageFor(model => model.IdArtista)
+                                </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                                <p>
+                                    <input type="submit" value="Create"  class="btn btn-default" />
+                                </p>
+   
+                        }
+
+       </div>
+    </div>

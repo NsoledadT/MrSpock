@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.IdArtista)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdAlbum }, new {@class = "LinkBorrado"}
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdAlbum }) |
+           
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdAlbum }, new {@class = "LinkBorrado"}
  )
         </td>
     </tr>

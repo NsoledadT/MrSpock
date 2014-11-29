@@ -109,7 +109,9 @@ namespace MVCDisco.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Artista artista = db.Artista.Find(id);
+            artista.Album.Clear();
             db.Artista.Remove(artista);
+            
             db.SaveChanges();
             return RedirectToAction("Index");
         }

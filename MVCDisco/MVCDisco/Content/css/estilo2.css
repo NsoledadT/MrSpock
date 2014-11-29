@@ -147,3 +147,7 @@ body
     font-weight:bold;
    
 }
+
+#IdArtista {
+visibility:hidden;
+}
