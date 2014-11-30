@@ -29,7 +29,7 @@
 
                                
                                 <div class="editor-field">
-                                    @Html.TextBox("Nombre", null, new { @class = "form-control",@Value= nombre})
+                                   
                                     @Html.EditorFor(model => model.IdCancion)
                                     @Html.ValidationMessageFor(model => model.IdCancion)
                                 </div>
@@ -39,8 +39,8 @@
                                 </div>
                                 <div class="editor-field">
                                    
+                                     @Html.EditorFor(model =>  model.Nombre)
                                     
-                                    @Html.EditorFor(model => model.Nombre)
                                     @Html.ValidationMessageFor(model => model.Nombre)
                                 </div>
 
@@ -48,33 +48,26 @@
                                     @Html.LabelFor(model => model.Duracion)
                                 </div>
                                 <div class="editor-field">
-                                    @Html.EditorFor(model => model.Duracion)
+                                     @Html.EditorFor(model => model.Duracion)
                                     @Html.ValidationMessageFor(model => model.Duracion)
                                 </div>
 
-                                <div class="editor-label">
-                                    @Html.LabelFor(model => model.FechaCreacion)
-                                </div>
+                              
                                 <div class="editor-field">
                                     @Html.EditorFor(model => model.FechaCreacion)
                                     @Html.ValidationMessageFor(model => model.FechaCreacion)
                                 </div>
 
-                                <div class="editor-label">
-                                    @Html.LabelFor(model => model.IdAlbum)
-                                </div>
-                                <div class="editor-field">
-                                    @Html.EditorFor(model => model.IdAlbum)
-                                    @Html.ValidationMessageFor(model => model.IdAlbum)
-                                </div>
-
-                                <div class="editor-label">
-                                    @Html.LabelFor(model => model.IdUsuario)
-                                </div>
-                                <div class="editor-field">
+                               <div class="editor-field">
                                     @Html.EditorFor(model => model.IdUsuario)
                                     @Html.ValidationMessageFor(model => model.IdUsuario)
                                 </div>
+                            
+                                <div class="editor-field">
+                                  @Html.DropDownList("IdAlbum", String.Empty)
+                                  @Html.ValidationMessageFor(model => model.IdAlbum)
+           
+                               </div>
 
                                 <p>
                                     <input type="submit"  class="btn btn-default" value="guardar" />

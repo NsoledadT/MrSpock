@@ -42,29 +42,25 @@
                             @Html.ValidationMessageFor(model => model.Anio)
                         </div>
 
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.FechaCreación)
-                        </div>
+                        
                         <div class="editor-field">
                             @Html.EditorFor(model => model.FechaCreación)
                             @Html.ValidationMessageFor(model => model.FechaCreación)
                         </div>
 
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.IdUsuario)
-                        </div>
+                        
                         <div class="editor-field">
                             @Html.EditorFor(model => model.IdUsuario)
                             @Html.ValidationMessageFor(model => model.IdUsuario)
                         </div>
 
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.IdArtista)
-                        </div>
-                        <div class="editor-field">
-                            @Html.EditorFor(model => model.IdArtista)
-                            @Html.ValidationMessageFor(model => model.IdArtista)
-                        </div>
+                       <div class="editor-label">
+                                    @Html.LabelFor(model => model.IdArtista,"Artistas")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("IdArtista", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.IdArtista)
+                                </div>
 
                         <p>
                             <input type="submit" value="Save" />

@@ -148,7 +148,7 @@ body
    
 }
 
-#IdArtista {
+.editor-field-1, #IdCancion,#IdCancion,#FechaCreacion,#IdUsuario,#FechaCreaci_n{
 visibility:hidden;
 }
 
@@ -163,3 +163,4 @@ visibility:hidden;
         margin-left:960px;
         font-size:12px;
 }
+

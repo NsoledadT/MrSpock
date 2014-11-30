@@ -105,6 +105,7 @@ namespace MVCDisco.Controllers
 
         public ActionResult Edit(int id)
         {
+            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum((int)this.Session["id"]), "IdAlbum", "Nombre");
 
             return View(cancionServicio.ObtenerCancion(id));
         }
@@ -114,17 +115,18 @@ namespace MVCDisco.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Cancion cancion)
         {
            if (ModelState.IsValid)
             {
-              
-                // TODO: Add update logic here
 
+
+                cancionServicio.ActualizarCancion(cancion);
                 return RedirectToAction("Index");
             }
            else
             {
+                ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum((int)this.Session["id"]), "IdAlbum", "Nombre");
                 return View();
             }
         }

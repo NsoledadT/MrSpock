@@ -55,9 +55,21 @@ namespace MVCDisco.Servicios
             return true;
         }
 
-        public Album EditarAlbum(int id)
+        //Metodo que obtiene un Album
+        public Album ObtenerAlbum(int id)
         {
-            return (from e in db.Album where e.IdAlbum == id select e).First();
+
+            return (from a in db.Album where a.IdAlbum == id select a).First();
+
+        }
+
+        public void EditarAlbum(Album album)
+        {
+            Album albumActualizado = ObtenerAlbum(album.IdAlbum);
+            albumActualizado.Nombre = album.Nombre;
+            albumActualizado.Anio = album.Anio;
+            albumActualizado.IdArtista = album.IdArtista;
+            db.SaveChanges();
 
 
         }

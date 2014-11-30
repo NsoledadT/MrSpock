@@ -69,9 +69,9 @@ namespace MVCDisco.Controllers
 
         public ActionResult Edit(int id)
         {
-           
-            
-            return View( albumServicio.EditarAlbum(id));
+
+            ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
+            return View( albumServicio.ObtenerAlbum(id));
            
         }
 
@@ -84,11 +84,12 @@ namespace MVCDisco.Controllers
             if (ModelState.IsValid)
             {
                 album.IdUsuario = (int)this.Session["id"];
-                albumServicio.CrearAlbum(album);
+                albumServicio.EditarAlbum(album);
                 
                 return RedirectToAction("Index");
             }
-           
+
+            ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
             return View(album);
         }
 

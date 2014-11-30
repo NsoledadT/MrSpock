@@ -81,6 +81,16 @@ namespace MVCDisco.Servicios
            
         }
 
+        //Metodo que obtiene una cancion
+        public void ActualizarCancion(Cancion cancion)
+        {
+            Cancion cancionActualizar = ObtenerCancion(cancion.IdCancion);
+            cancionActualizar.Nombre = cancion.Nombre;
+            cancionActualizar.Duracion = cancion.Duracion;
+            cancionActualizar.IdAlbum= cancion.IdAlbum;
+            db.SaveChanges();
+        }
+
 
     }
 }

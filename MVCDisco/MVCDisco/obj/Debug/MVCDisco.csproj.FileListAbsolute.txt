@@ -53,6 +53,5 @@ C:\Users\dario\MrSpock\MVCDisco\MVCDisco\bin\es\System.Web.Razor.resources.dll
 C:\Users\dario\MrSpock\MVCDisco\MVCDisco\bin\es\System.Web.WebPages.resources.dll
 C:\Users\dario\MrSpock\MVCDisco\MVCDisco\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\dario\MrSpock\MVCDisco\MVCDisco\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\dario\MrSpock\MVCDisco\MVCDisco\obj\Debug\MVCDisco.csprojResolveAssemblyReference.cache
 C:\Users\dario\MrSpock\MVCDisco\MVCDisco\obj\Debug\MVCDisco.dll
 C:\Users\dario\MrSpock\MVCDisco\MVCDisco\obj\Debug\MVCDisco.pdb
