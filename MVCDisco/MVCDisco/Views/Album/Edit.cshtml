@@ -15,22 +15,23 @@
 
     <div class="contenedor_derecho_cancion">
 
-                @using (Html.BeginForm("Edit", "Album", FormMethod.Post, new { role = "form" }))
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
 
                     <h2>Editar Album</h2>
-    
-                        <div class="editor-field">
-                            @Html.HiddenFor(model => model.IdAlbum)
+                    
+                         <div class="editor-field">
+                            @Html.EditorFor(model => model.IdAlbum)
+                            @Html.ValidationMessageFor(model => model.IdAlbum)
                         </div>
-
-                        <div class="editor-label">
+                    
+                         <div class="editor-label">
                             @Html.LabelFor(model => model.Nombre)
                         </div>
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.Nombre)
+                            @Html.TextBox("Nombre", null, new { @class = "form-control",placeholder="Ingrese Nombre"})
                             @Html.ValidationMessageFor(model => model.Nombre)
                         </div>
 
@@ -38,7 +39,7 @@
                             @Html.LabelFor(model => model.Anio)
                         </div>
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.Anio)
+                            @Html.TextBox("Anio", null, new { @class = "form-control",placeholder="Ingrese Año"})
                             @Html.ValidationMessageFor(model => model.Anio)
                         </div>
 
@@ -54,13 +55,13 @@
                             @Html.ValidationMessageFor(model => model.IdUsuario)
                         </div>
 
-                       <div class="editor-label">
-                                    @Html.LabelFor(model => model.IdArtista,"Artistas")
-                                </div>
-                                <div class="editor-field">
-                                    @Html.DropDownList("IdArtista", String.Empty)
-                                    @Html.ValidationMessageFor(model => model.IdArtista)
-                                </div>
+                        <div class="editor-label">
+                         @Html.LabelFor(model => model.IdArtista,"Artistas")
+                         </div>
+                         <div class="editor-field">
+                             @Html.DropDownList("IdArtista", String.Empty)
+                             @Html.ValidationMessageFor(model => model.IdArtista)
+                         </div>
 
                         <p>
                             <input type="submit" value="Save" />

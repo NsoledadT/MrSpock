@@ -57,11 +57,22 @@ namespace MVCDisco.Controllers
         // POST: /Album/Create
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Album album)
         {
             album.IdUsuario = (int)this.Session["id"];
-            albumServicio.CrearAlbum(album);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+              
+                    albumServicio.CrearAlbum(album);
+                    return RedirectToAction("Index");
+               
+            }
+            else
+            {
+                ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
+                return View();
+            }
         }
 
         //

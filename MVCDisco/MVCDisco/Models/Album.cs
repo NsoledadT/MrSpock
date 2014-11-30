@@ -11,6 +11,7 @@ namespace MVCDisco.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Album
     {
@@ -20,10 +21,17 @@ namespace MVCDisco.Models
         }
     
         public int IdAlbum { get; set; }
+        [Required]
+        [StringLength(50,ErrorMessage="maximo 50 caracteres")]
         public string Nombre { get; set; }
+
+        [Required]
+        [Range(1900,2016,ErrorMessage="El año debe estar comprendido entre 1900 y 2016")]
         public int Anio { get; set; }
+
         public System.DateTime FechaCreación { get; set; }
         public int IdUsuario { get; set; }
+
         public Nullable<int> IdArtista { get; set; }
     
         public virtual Artista Artista { get; set; }

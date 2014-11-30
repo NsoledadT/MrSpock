@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var nombre = "hola";
+    
 }
 
 
@@ -15,19 +15,12 @@
 
    <div class="contenedor_derecho_cancion">
            
-         
-            @ViewBag.Mensaje
-
-
-                        @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
+                  @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true)
 
                               <h2>Editar Canción</h2>
-                               
-
-                               
                                 <div class="editor-field">
                                    
                                     @Html.EditorFor(model => model.IdCancion)
@@ -38,17 +31,15 @@
                                     @Html.LabelFor(model => model.Nombre)
                                 </div>
                                 <div class="editor-field">
-                                   
-                                     @Html.EditorFor(model =>  model.Nombre)
-                                    
-                                    @Html.ValidationMessageFor(model => model.Nombre)
+                                 @Html.TextBox("Nombre", null, new { @class = "form-control",placeholder="Ingrese Nombre"})
+                                @Html.ValidationMessageFor(model => model.Nombre)
                                 </div>
 
                                 <div class="editor-label">
                                     @Html.LabelFor(model => model.Duracion)
                                 </div>
                                 <div class="editor-field">
-                                     @Html.EditorFor(model => model.Duracion)
+                                    @Html.TextBox("Duracion", null , new { @class = "form-control",placeholder="Ingrese Duracion"})
                                     @Html.ValidationMessageFor(model => model.Duracion)
                                 </div>
 

@@ -18,9 +18,7 @@
 
                      <table class="table table-hover album">
                         <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.IdArtista)
-                            </th>
+                           
                             <th>
                                 @Html.DisplayNameFor(model => model.NombreCompleto)
                             </th>
@@ -29,9 +27,7 @@
 
                     @foreach (var item in Model) {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdArtista)
-                            </td>
+                            
                             <td>
                                 @Html.DisplayFor(modelItem => item.NombreCompleto)
                             </td>

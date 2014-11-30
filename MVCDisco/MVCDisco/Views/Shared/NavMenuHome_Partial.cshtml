@@ -19,14 +19,14 @@
        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@class = "navbar-form navbar-left"}))
        {
             @Html.ValidationSummary(true)
-        <div class="form-group">
-          @Html.EditorFor(model=> model.Email, new {@class = "form-control",placeholder="Email"})
+        <div class="form-group home">
+          @Html.TextBoxFor(model=> model.Email, new {@class = "form-control",placeholder="Email"})
         </div>
-           <div class="form-group">
-          @Html.EditorFor(model=>model.Contrasenia, new {@class = "form-control",placeholder="Contraseña"})
+           <div class="form-group home">
+          @Html.TextBoxFor(model=>model.Contrasenia, new {@class = "form-control",placeholder="Contraseña"})
         </div>
-           @ViewBag.Text
-        <button type="submit" class="btn btn-default">Ingresar</button>
+          <p class="mensajeLogin">@ViewBag.Text</p> 
+        <button type="submit" class="btn btn-default home">Ingresar</button>
                
        }
     

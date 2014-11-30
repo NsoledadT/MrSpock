@@ -148,7 +148,7 @@ body
    
 }
 
-.editor-field-1, #IdCancion,#IdCancion,#FechaCreacion,#IdUsuario,#FechaCreaci_n{
+.editor-field-1, #IdCancion,#IdAlbum,#FechaCreacion,#IdUsuario,#FechaCreaci_n{
 visibility:hidden;
 }
 
@@ -162,5 +162,25 @@ visibility:hidden;
     color:white;
         margin-left:960px;
         font-size:12px;
+}
+
+.mensajeLogin {
+    float:left;
+    color:white;
+    font-size:12px;
+    
+}
+
+.btn.btn-default.home {
+     float:left;
+     margin-top:3px;
+     margin-left:300px;
+     margin-right:5px;
+}
+
+.form-group.home {
+    float:left;
+    margin-right:5px;
+
 }
 
