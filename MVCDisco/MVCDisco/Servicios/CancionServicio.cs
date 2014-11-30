@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVCDisco.Models;
+using MVCDisco.Servicios;
 
 namespace MVCDisco.Servicios
 {
@@ -12,9 +13,9 @@ namespace MVCDisco.Servicios
         TP20142CEntities1 db = new TP20142CEntities1();
 
         //Metodo obtiene una lista ordenada por nombre de canciones
-        public List<Cancion> OrdenarCancionPorNombre()
+        public List<Cancion> OrdenarCancionPorNombre(int id)
         {
-            return (from n in db.Cancion orderby n.Nombre select n).ToList();
+            return (from n in db.Cancion orderby n.Nombre where n.IdUsuario == id select n).ToList();
         }
 
         //Metodo que obtiene una lista de canciones segun album
@@ -55,7 +56,7 @@ namespace MVCDisco.Servicios
         //Metodo que crea una cancion
         public bool CrearCancion(Cancion cancion)
         {
-            cancion.IdUsuario = 4;
+           
             cancion.FechaCreacion = DateTime.Now;
 
             db.Cancion.Add(cancion);
@@ -70,6 +71,14 @@ namespace MVCDisco.Servicios
             var cancion = (from a in db.Cancion where a.IdCancion == id select a).First();
             db.Cancion.Remove(cancion);
             db.SaveChanges();
+        }
+
+        //Metodo que obtiene una cancion
+        public Cancion ObtenerCancion(int id)
+        {
+
+           return (from a in db.Cancion where a.IdCancion == id select a).First();
+           
         }
 
 

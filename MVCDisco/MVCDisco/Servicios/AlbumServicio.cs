@@ -12,22 +12,22 @@ namespace MVCDisco.Servicios
         TP20142CEntities1 db = new TP20142CEntities1();
 
         //Metodo obtiene una lista de albums ordenada por nombre
-        public List<Album> OrdenarAlbumPorNombre()
+        public List<Album> OrdenarAlbumPorNombre(int id)
         {
-            return (from n in db.Album orderby n.Nombre select n).ToList();
+            return (from n in db.Album orderby n.Nombre where n.IdUsuario == id select n).ToList();
         }
 
         //Metodo que obtiene una lista de canciones segun album
-        public List<Album> FiltrarAlbumsPorArtista(int id)
+        public List<Album> FiltrarAlbumsPorArtista(int id, int usuario)
         {
-            return (from n in db.Album where n.Artista.IdArtista == id select n).ToList();
+            return (from n in db.Album where n.Artista.IdArtista == id && n.IdUsuario == usuario select n).ToList();
         }
 
 
         //Metodo que obtiene todos los albumes
-        public List<Album> BuscarTodoAlbum()
+        public List<Album> BuscarTodoAlbum(int id)
         {
-            return db.Album.ToList();
+            return (from a in db.Album where a.IdUsuario == id select a).ToList();
         }
 
         //Metodo que crea Album
@@ -55,26 +55,12 @@ namespace MVCDisco.Servicios
             return true;
         }
 
-        public bool EditarAlbum(int id)
+        public Album EditarAlbum(int id)
         {
-            Album album = (from e in db.Album where e.IdAlbum == id select e).FirstOrDefault();
-            if (album == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (from e in db.Album where e.IdAlbum == id select e).First();
+
 
         }
-
-        public bool EditarAlbum(Album album) {
-            db.Entry(album).State = EntityState.Modified;
-            db.SaveChanges();
-            return true;
-              }
-
     }
 
 }

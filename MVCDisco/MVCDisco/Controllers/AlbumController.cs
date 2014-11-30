@@ -22,7 +22,7 @@ namespace MVCDisco.Controllers
             ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
 
 
-            return View(albumServicio.OrdenarAlbumPorNombre());
+            return View(albumServicio.OrdenarAlbumPorNombre((int)this.Session["id"]));
         }
 
         [HttpPost]
@@ -34,30 +34,22 @@ namespace MVCDisco.Controllers
             if (int.TryParse(IdArtista, out resultado))
             {
 
-                return View(albumServicio.FiltrarAlbumsPorArtista(Int32.Parse(IdArtista)));
+                return View(albumServicio.FiltrarAlbumsPorArtista(Int32.Parse(IdArtista), (int)this.Session["id"]));
 
             }
 
-            return View(albumServicio.OrdenarAlbumPorNombre());
+            return View(albumServicio.OrdenarAlbumPorNombre((int)this.Session["id"]));
         }
 
 
 
 
 
-        //
-        // GET: /Album/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
         // GET: /Album/Create
 
         public ActionResult Create()
         {
+            ViewBag.IdArtista = new SelectList(artistaServicio.BuscarArtistas(), "IdArtista", "NombreCompleto");
             return View();
         }
 
@@ -67,6 +59,7 @@ namespace MVCDisco.Controllers
         [HttpPost]
         public ActionResult Create(Album album)
         {
+            album.IdUsuario = (int)this.Session["id"];
             albumServicio.CrearAlbum(album);
             return RedirectToAction("Index");
         }
@@ -76,13 +69,10 @@ namespace MVCDisco.Controllers
 
         public ActionResult Edit(int id)
         {
-            if (albumServicio.EditarAlbum(id))
-            {
-                return HttpNotFound();
-            }
-            else {
-                return View("");
-             }
+           
+            
+            return View( albumServicio.EditarAlbum(id));
+           
         }
 
         //
@@ -93,7 +83,9 @@ namespace MVCDisco.Controllers
         {
             if (ModelState.IsValid)
             {
-                albumServicio.EditarAlbum(album);
+                album.IdUsuario = (int)this.Session["id"];
+                albumServicio.CrearAlbum(album);
+                
                 return RedirectToAction("Index");
             }
            

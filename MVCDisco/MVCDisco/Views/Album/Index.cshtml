@@ -30,14 +30,10 @@
                        <input type="submit"  class="btn btn-default filtrar" value="Filtrar" />
                     </div>
             }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table table-hover album">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdAlbum)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
@@ -47,20 +43,12 @@
         <th>
             @Html.DisplayNameFor(model => model.FechaCreación)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdArtista)
-        </th>
-        <th></th>
-    </tr>
+      
+         </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAlbum)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
@@ -70,12 +58,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.FechaCreación)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdUsuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdArtista)
-        </td>
+        
         <td>
             @Html.ActionLink("Editar", "Edit", new { id = item.IdAlbum }) |
            
