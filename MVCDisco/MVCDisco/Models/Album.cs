@@ -26,7 +26,7 @@ namespace MVCDisco.Models
         public string Nombre { get; set; }
 
         [Required]
-        [Range(1900,2016,ErrorMessage="El año debe estar comprendido entre 1900 y 2016")]
+        [Range(1700,2016,ErrorMessage="El año debe estar comprendido entre 1700 y 2016")]
         public int Anio { get; set; }
 
         public System.DateTime FechaCreación { get; set; }

@@ -8,6 +8,7 @@ using MVCDisco.Servicios;
 
 namespace MVCDisco.Controllers
 {
+    [HandleError(ExceptionType = typeof(ArgumentException), View = "Index")]
     public class HomeController : Controller
     {
         UsuarioServicio usuarioServicio = new UsuarioServicio();

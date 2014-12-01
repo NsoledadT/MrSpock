@@ -41,9 +41,10 @@
                       </ul>
                     </li>
                   </ul>
-                 <p class="bienvenido"> @ViewBag.Text</p>
+                 <p class="bienvenido">Bienvenida/o: @Session["nombre"]</p>
                  <!-- Boton para salir de LogIn -->
-                 @Html.ActionLink("LogOut", "LogOut", "Home")
+
+                  <p class="bienvenido"> @Html.ActionLink("LogOut", "LogOut", "Home")</p>
                 
                 
                 </div><!-- /.navbar-collapse -->
